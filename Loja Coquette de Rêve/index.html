@@ -1,0 +1,1751 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FluffyPeach – Coquette de Rêve</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* Cores para o modo claro */
+      --rosa-claro: #fadadd;
+      --creme: #fff5ea;
+      --dourado-suave: #e8cfc4;
+      --cinza-perola: #d9d9d9;
+      --rosa-antigo: #de9da1;
+      --roxo-coquette: #9b4d96;
+      --lavanda: #e6e6fa;
+      --azul-bebe: #e0f0ff;
+      --pessego: #ffdab9;
+      
+      /* Cores para o modo escuro */
+      --dark-bg: #1a1a2e;
+      --dark-secondary: #16213e;
+      --dark-accent: #0f3460;
+      --dark-text: #e1e1e6;
+      --dark-border: #30475e;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    /* Sistema de seleção de cursor personalizado */
+    .cursor-default {
+      cursor: default !important;
+    }
+    
+    .cursor-heart-pink {
+      cursor: url('images/cursors/coracao_rosa.ico'), auto !important;
+    }
+    
+    .cursor-heart-purple {
+      cursor: url('images/cursors/coracao_roxo.ico'), auto !important;
+    }
+    
+    .cursor-heart-blue {
+      cursor: url('images/cursors/coracao_azul.ico'), auto !important;
+    }
+    
+    .cursor-heart-red {
+      cursor: url('images/cursors/coracao_vermelho.ico'), auto !important;
+    }
+    
+    .cursor-star {
+      cursor: url('images/cursors/estrela.ico'), auto !important;
+    }
+    
+    .cursor-bow {
+      cursor: url('images/cursors/laco.ico'), auto !important;
+    }
+    
+    /* Garantir que o cursor personalizado seja mantido em elementos clicáveis */
+    .cursor-heart-pink a, .cursor-heart-pink button, .cursor-heart-pink input[type="submit"], 
+    .cursor-heart-purple a, .cursor-heart-purple button, .cursor-heart-purple input[type="submit"],
+    .cursor-heart-blue a, .cursor-heart-blue button, .cursor-heart-blue input[type="submit"],
+    .cursor-heart-red a, .cursor-heart-red button, .cursor-heart-red input[type="submit"],
+    .cursor-star a, .cursor-star button, .cursor-star input[type="submit"],
+    .cursor-bow a, .cursor-bow button, .cursor-bow input[type="submit"],
+    .cursor-default a, .cursor-default button, .cursor-default input[type="submit"] {
+      cursor: inherit !important;
+    }
+    
+    body {
+      background-color: var(--creme);
+      color: #333;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    /* Removidas as molduras florais conforme solicitado */
+    
+    /* Ajustado para ocupar a tela toda conforme solicitado */
+    .content-wrapper {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    header {
+      background-color: var(--rosa-claro);
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 3px solid var(--roxo-coquette);
+      position: relative;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    
+    .logo-container img {
+      width: 60px;
+      height: auto;
+      margin-right: 1rem;
+    }
+    
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: var(--roxo-coquette);
+    }
+    
+    nav {
+      background-color: var(--rosa-antigo);
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+    }
+    
+    nav a::before {
+      content: "❤️";
+      margin-right: 0.5rem;
+    }
+    
+    /* Hero Banner */
+    .hero-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: linear-gradient(to right, var(--lavanda), var(--azul-bebe), var(--pessego));
+      margin: 2rem 0;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .hero-banner img {
+      width: 200px;
+      height: auto;
+      margin-right: 2rem;
+    }
+    
+    .hero-content {
+      text-align: center;
+    }
+    
+    .hero-content h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--roxo-coquette);
+      margin-bottom: 1rem;
+    }
+    
+    .cta-button {
+      background-color: var(--roxo-coquette);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-button::before {
+      content: "❤️";
+      margin-right: 0.5rem;
+    }
+    
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(155, 77, 150, 0.4);
+    }
+    
+    /* Botão Ver Carrinho */
+    #verCarrinho {
+      display: block;
+      margin: 1rem auto;
+      background-color: var(--roxo-coquette);
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    #verCarrinho::before {
+      content: "🛍️";
+      margin-right: 0.5rem;
+    }
+    
+    #verCarrinho:hover {
+      background-color: var(--rosa-claro);
+      color: var(--roxo-coquette);
+      border: 2px solid var(--roxo-coquette);
+      transform: scale(1.05);
+    }
+    
+    section {
+      padding: 2rem;
+    }
+    
+    .produtos {
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .produto {
+      background-color: white;
+      border: 1px solid var(--cinza-perola);
+      border-radius: 20px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .produto:hover {
+      transform: translateY(-5px);
+    }
+    
+    .produto img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    
+    .produto img:hover {
+      transform: scale(1.05);
+    }
+    
+    .produto h3 {
+      margin-top: 1rem;
+      color: var(--roxo-coquette);
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .produto p {
+      margin: 0.5rem 0;
+      font-weight: 600;
+      color: var(--roxo-coquette);
+    }
+    
+    .produto p::before,
+    .produto p::after {
+      content: "✨";
+      margin: 0 0.5rem;
+    }
+    
+    .produto button {
+      background-color: var(--rosa-claro);
+      color: var(--roxo-coquette);
+      border: 2px solid var(--roxo-coquette);
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+    
+    .produto button::before {
+      content: "💕";
+      margin-right: 0.5rem;
+    }
+    
+    .produto button:hover {
+      background-color: var(--roxo-coquette);
+      color: white;
+      transform: scale(1.05);
+    }
+    
+    .wishlist-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      color: var(--rosa-antigo);
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .produto:hover .wishlist-icon {
+      opacity: 1;
+    }
+    
+    /* Classe para coração favorito ativo */
+    .wishlist-icon.active {
+      opacity: 1;
+      color: red;
+    }
+    
+    footer {
+      background-color: var(--dourado-suave);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+      position: relative;
+      border-top: 3px solid var(--roxo-coquette);
+    }
+    
+    /* Removidas as molduras florais do footer conforme solicitado */
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    
+    .footer-section {
+      margin: 1rem;
+      min-width: 200px;
+    }
+    
+    .footer-section h3 {
+      color: var(--roxo-coquette);
+      margin-bottom: 0.5rem;
+    }
+    
+    footer a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+    
+    footer a:hover {
+      color: var(--roxo-coquette);
+    }
+    
+    .social-icons a {
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+    }
+    
+    .mini-mascot {
+      display: block;
+      width: 80px;
+      margin: 1rem auto;
+    }
+    
+    .sobre, .contacto, .conta {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      margin: 2rem 0;
+    }
+    
+    /* Estilos para a seção de conta */
+    .conta-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .conta-login, .conta-registro, .conta-beneficios {
+      background-color: var(--creme);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .conta-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .conta-button {
+      background-color: var(--roxo-coquette);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+    }
+    
+    .conta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(155, 77, 150, 0.4);
+    }
+    
+    .conta-link {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .link-conta {
+      color: var(--roxo-coquette);
+      text-decoration: underline;
+    }
+    
+    .termos-container {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    
+    .beneficios-lista {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    
+    .beneficios-lista li {
+      margin-bottom: 0.8rem;
+      padding-left: 0.5rem;
+    }
+    
+    form input, form textarea {
+      width: 100%;
+      padding: 1rem;
+      margin: 1rem 0;
+      border: 1px solid var(--cinza-perola);
+      border-radius: 15px;
+      transition: border 0.3s ease;
+    }
+    
+    form input:focus, form textarea:focus {
+      border: 2px solid var(--roxo-coquette);
+      outline: none;
+    }
+    
+    form button {
+      background-color: var(--roxo-coquette);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    form button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(155, 77, 150, 0.4);
+    }
+    
+    /* Estilo da Sidebar do Carrinho */
+    #carrinhoSidebar {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 330px;
+      height: 100%;
+      background-color: var(--creme);
+      border-left: 3px solid var(--roxo-coquette);
+      padding: 1.5rem;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+      overflow-y: auto;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+    
+    #carrinhoSidebar.active {
+      right: 0;
+    }
+    
+    #carrinhoSidebar h2 {
+      margin-bottom: 1rem;
+      color: var(--roxo-coquette);
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+    }
+    
+    .pastinhas-container {
+      margin-bottom: 2rem;
+    }
+    
+    .pastinha {
+      background-color: white;
+      border-radius: 15px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .pastinha-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+    }
+    
+    .pastinha-header h3 {
+      color: var(--roxo-coquette);
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .pastinha-header h3::before {
+      content: "🎀";
+      margin-right: 0.5rem;
+    }
+    
+    .pastinha-content {
+      display: none;
+    }
+    
+    .pastinha-content.active {
+      display: block;
+    }
+    
+    #listaCarrinho, #listaFavoritos {
+      list-style: none;
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+    
+    #listaCarrinho li, #listaFavoritos li {
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed var(--cinza-perola);
+      color: #555;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .item-checkbox {
+      margin-right: 0.5rem;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--rosa-antigo);
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .item-checkbox:checked {
+      background-color: var(--rosa-antigo);
+    }
+    
+    .item-checkbox:checked::after {
+      content: "❤️";
+      position: absolute;
+      font-size: 10px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    #totalCarrinho {
+      margin-top: 1rem;
+      font-weight: bold;
+      text-align: right;
+      color: var(--roxo-coquette);
+      font-size: 1.2rem;
+    }
+    
+    #closeCarrinho {
+      display: block;
+      margin-bottom: 1rem;
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: var(--roxo-coquette);
+      text-align: right;
+      width: 100%;
+    }
+    
+    .carrinho-acoes {
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+    }
+    
+    .carrinho-acoes button {
+      background-color: var(--rosa-claro);
+      color: var(--roxo-coquette);
+      border: 1px solid var(--roxo-coquette);
+      padding: 0.5rem 1rem;
+      border-radius: 15px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .carrinho-acoes button:hover {
+      background-color: var(--roxo-coquette);
+      color: white;
+    }
+    
+    .finalizar-compra {
+      display: block;
+      width: 100%;
+      background-color: var(--roxo-coquette);
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      text-align: center;
+    }
+    
+    .finalizar-compra:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(155, 77, 150, 0.4);
+    }
+    
+    .nova-pastinha {
+      display: flex;
+      margin-top: 1rem;
+    }
+    
+    .nova-pastinha input {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid var(--cinza-perola);
+      border-radius: 15px 0 0 15px;
+    }
+    
+    .nova-pastinha button {
+      background-color: var(--roxo-coquette);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0 15px 15px 0;
+      cursor: pointer;
+    }
+    
+    /* Estilo para o Modal da Imagem */
+    #modalImage {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    
+    #modalImage.active {
+      display: flex;
+    }
+    
+    #modalContent {
+      max-width: 70%;
+      max-height: 80%;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    
+    #closeModal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      z-index: 2100;
+    }
+    
+    /* Modo Noite dos Sonhos */
+    .night-mode-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--roxo-coquette);
+      color: white;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 900;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    /* Estilos para o seletor de cursor */
+    .cursor-selector {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: white;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      z-index: 900;
+      display: none;
+      width: 200px;
+    }
+    
+    .cursor-selector.active {
+      display: block;
+    }
+    
+    .cursor-selector h3 {
+      color: var(--roxo-coquette);
+      margin-bottom: 1rem;
+      text-align: center;
+      font-size: 1rem;
+    }
+    
+    .cursor-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .cursor-option {
+      padding: 0.5rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .cursor-option:hover {
+      background-color: var(--rosa-claro);
+    }
+    
+    .cursor-option.active {
+      background-color: var(--rosa-antigo);
+      color: white;
+    }
+    
+    .close-cursor-selector {
+      display: block;
+      width: 100%;
+      background-color: var(--roxo-coquette);
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+    
+    .open-cursor-selector {
+      position: fixed;
+      bottom: 20px;
+      right: 80px;
+      background-color: var(--rosa-antigo);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      z-index: 900;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    
+    /* Animação para as estrelas no modo noturno */
+    @keyframes twinkle {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+    
+    .star {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 5;
+      box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.8);
+      animation: twinkle 5s infinite;
+    }
+
+    .glitter {
+      display: none;
+    }
+    
+    /* Estilos para o modo escuro */
+    body.night-mode {
+      background-color: var(--dark-bg);
+      color: var(--dark-text);
+      overflow-y: auto !important; /* Correção para permitir scroll no modo escuro */
+    }
+    
+    body.night-mode {
+      background-color: #1a1a2e;
+      color: #e6e6ff;
+    }
+    
+    body.night-mode header {
+      background-color: #16213e;
+      border-bottom: 3px solid #4d4dff;
+    }
+    
+    body.night-mode nav {
+      background-color: #2c2c54;
+    }
+    
+    body.night-mode .hero-banner {
+      background: linear-gradient(to right, #213567, #513483, #20254b);
+    }
+
+    body.night-mode .produto,
+    body.night-mode .sobre,
+    body.night-mode .contacto,
+    body.night-mode .pastinha {
+      background-color: #242447;
+      color: #e6e6ff;
+      border: 1px solid #4d4dff;
+    }
+
+    body.night-mode .produto h3,
+    body.night-mode .sobre h3,
+    body.night-mode .contacto h3,
+    body.night-mode .pastinha h3 {
+      color: #a6a6ff;
+    }
+    
+    body.night-mode .produto button {
+      background-color: #2c2c54;
+      color: #e6e6ff;
+      border: 2px solid #4d4dff;
+    }
+    
+    body.night-mode .produto button:hover {
+      background-color: #4d4dff;
+      color: #e6e6ff;
+    }
+    
+    body.night-mode footer {
+      background-color: #16213e;
+      border-top: 3px solid #4d4dff;
+    }
+    
+    body.night-mode form input,
+    body.night-mode form textarea {
+      background-color: #1a1a2e;
+      color: #e6e6ff;
+      border-color: #4d4dff;
+    }
+
+    body.night-mode .cta-button,
+    body.night-mode #verCarrinho,
+    body.night-mode .finalizar-compra,
+    body.night-mode .night-mode-toggle {
+      background-color: #4d4dff;
+      color: #e6e6ff;
+    }
+    
+    body.night-mode .cursor-selector {
+      background-color: #242447;
+      border: 2px solid #4d4dff;
+    }
+    
+    body.night-mode .cursor-option {
+      background-color: #1a1a2e;
+      border: 1px solid #4d4dff;
+      color: #e6e6ff;
+    }
+    
+    body.night-mode .cursor-option:hover,
+    body.night-mode .cursor-option.active {
+      background-color: #4d4dff;
+      color: #e6e6ff;
+    }
+    
+    .glitter {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 1000;
+    }
+    body.night-mode .produto h3,
+    body.night-mode .produto p {
+      color: var(--dark-text);
+    }
+    
+    body.night-mode footer a {
+      color: var(--dark-text);
+    }
+    
+    body.night-mode .sobre, 
+    body.night-mode .contacto, 
+    body.night-mode .conta {
+      background-color: var(--dark-secondary);
+      color: var(--dark-text);
+    }
+    
+    /* Correção para a seção "Minha conta" no modo escuro */
+    body.night-mode .conta-container {
+      color: var(--dark-text);
+    }
+    
+    body.night-mode .conta-login, 
+    body.night-mode .conta-registro, 
+    body.night-mode .conta-beneficios {
+      background-color: var(--dark-accent);
+      color: var(--dark-text);
+    }
+    
+    body.night-mode #carrinhoSidebar {
+      background-color: var(--dark-secondary);
+      border-left-color: var(--roxo-coquette);
+    }
+    
+    body.night-mode .pastinha {
+      background-color: var(--dark-accent);
+    }
+    
+    body.night-mode .pastinha-header h3,
+    body.night-mode #carrinhoSidebar h2,
+    body.night-mode #totalCarrinho {
+      color: var(--dark-text);
+    }
+    
+    body.night-mode .cursor-selector {
+      background-color: var(--dark-secondary);
+      color: var(--dark-text);
+    }
+    
+    body.night-mode .cursor-option:hover {
+      background-color: var(--dark-accent);
+    }
+    
+    /* Seletor de pasta para mover itens */
+    .mover-para-container {
+      margin-top: 1rem;
+      display: none;
+    }
+    
+    .mover-para-container.active {
+      display: block;
+    }
+    
+    .mover-para-select {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid var(--cinza-perola);
+      border-radius: 15px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .mover-para-button {
+      width: 100%;
+      background-color: var(--roxo-coquette);
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="cursor-heart-pink">
+  <div class="content-wrapper">
+    <header id="inicio">
+      <div class="logo-container">
+        <img src="golotipo_coelho.png" alt="Logo Coquette de Rêve">
+        <h1>FluffyPeach - Coquette de Rêve</h1>
+      </div>
+    </header>
+    
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#conta">Minha Conta</a>
+    </nav>
+    
+    <section>
+      <div class="hero-banner">
+        <img src="images/model-2d.jpg" alt="Modelo Coquette">
+        <div class="hero-content">
+          <h2>Estilo Coquette dos Sonhos</h2>
+          <p>Descubra nossa coleção exclusiva de peças coquette para expressar sua personalidade única.</p>
+        </div>
+      </div>
+      
+      <button id="verCarrinho">Ver Carrinho</button>
+      
+      <h2 id="produtos" style="text-align: center; margin: 2rem 0; color: var(--roxo-coquette); font-family: 'Playfair Display', serif;">Nossos Produtos</h2>
+      
+      <div class="produtos">
+        <div class="produto">
+          <span class="wishlist-icon" data-favorito="false">🤍</span>
+          <img src="images/produtos/produto1.jpg" alt="Produto 1" onclick="abrirModal(this.src)">
+          <h3>Vestido Coquette Dark</h3>
+          <p>€49,90</p>
+          <button class="add-to-cart" onclick="adicionarAoCarrinho('Vestido Coquette Rosa', '€49,90')">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="produto">
+          <span class="wishlist-icon" data-favorito="false">🤍</span>
+          <img src="images/produtos/produto2.jpg" alt="Produto 2" onclick="abrirModal(this.src)">
+          <h3>Conjunto Rosa</h3>
+          <p>€79,90</p>
+          <button class="add-to-cart" onclick="adicionarAoCarrinho('Conjunto Laço Encantado', '€79,90')">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="produto">
+          <span class="wishlist-icon" data-favorito="false">🤍</span>
+          <img src="images/produtos/produto3.jpg" alt="Produto 3" onclick="abrirModal(this.src)">
+          <h3>Conjunto Azul</h3>
+          <p>€39,90</p>
+          <button class="add-to-cart" onclick="adicionarAoCarrinho('Saia Plissada Sonho', '€39,90')">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="produto">
+          <span class="wishlist-icon" data-favorito="false">🤍</span>
+          <img src="images/produtos/produto4.jpg" alt="Produto 4" onclick="abrirModal(this.src)">
+          <h3>Conjunto Romântico com bolsa</h3>
+          <p>€29,90</p>
+          <button class="add-to-cart" onclick="adicionarAoCarrinho('Blusa Romântica', '€29,90')">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="produto">
+          <span class="wishlist-icon" data-favorito="false">🤍</span>
+          <img src="images/produtos/blusa.jpeg" alt="Blusa Coquette" onclick="abrirModal(this.src)">
+          <h3>Blusa Romântica</h3>
+          <p>€34,90</p>
+          <button class="add-to-cart" onclick="adicionarAoCarrinho('Blusa Coquette Delicada', '€34,90')">Adicionar ao Carrinho</button>
+        </div>
+        
+        <div class="produto">
+          <span class="wishlist-icon" data-favorito="false">🤍</span>
+          <img src="images/produtos/saia.jpeg" alt="Saia Coquette" onclick="abrirModal(this.src)">
+          <h3>Saia Romântica</h3>
+          <p>€44,90</p>
+          <button class="add-to-cart" onclick="adicionarAoCarrinho('Saia Coquette Elegante', '€44,90')">Adicionar ao Carrinho</button>
+        </div>
+      </div>
+    </section>
+    
+    <section id="sobre" class="sobre">
+      <h2 style="text-align: center; margin-bottom: 2rem; color: var(--roxo-coquette); font-family: 'Playfair Display', serif;">Sobre Nós</h2>
+      <p>A FluffyPeach - Coquette de Rêve nasceu do amor pela estética coquette e pela expressão da feminilidade através da moda. Nossa missão é oferecer peças que façam você se sentir especial, delicada e confiante.</p>
+      <p>Cada item é cuidadosamente selecionado para garantir qualidade e autenticidade ao estilo coquette que tanto amamos. Acreditamos que a moda deve ser uma forma de expressão pessoal e uma celebração da individualidade.</p>
+      <p>Nossa equipe é composta por apaixonados pela estética coquette, sempre atentos às tendências e às necessidades das nossas clientes. Estamos constantemente buscando novas peças e inspirações para trazer o melhor do universo coquette para você.</p>
+    </section>
+    
+    <section id="contacto" class="contacto">
+      <h2 style="text-align: center; margin-bottom: 2rem; color: var(--roxo-coquette); font-family: 'Playfair Display', serif;">Contacte-nos</h2>
+      <form>
+        <input type="text" placeholder="Seu Nome" required>
+        <input type="email" placeholder="Seu Email" required>
+        <textarea rows="5" placeholder="Sua Mensagem" required></textarea>
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+    </section>
+    
+    <section id="conta" class="conta">
+      <h2 style="text-align: center; margin-bottom: 2rem; color: var(--roxo-coquette); font-family: 'Playfair Display', serif;">Minha Conta</h2>
+      
+      <div class="conta-container">
+        <div class="conta-login">
+          <h3>Entrar</h3>
+          <form class="conta-form">
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Senha" required>
+            <button type="submit" class="conta-button">Entrar</button>
+          </form>
+          <p class="conta-link">Não tem uma conta? <a href="#" class="link-conta">Registre-se</a></p>
+        </div>
+        
+        <div class="conta-registro">
+          <h3>Criar Conta</h3>
+          <form class="conta-form">
+            <input type="text" placeholder="Nome Completo" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Senha" required>
+            <input type="password" placeholder="Confirmar Senha" required>
+            <div class="termos-container">
+              <input type="checkbox" id="termos" required>
+              <label for="termos">Concordo com os Termos e Condições</label>
+            </div>
+            <button type="submit" class="conta-button">Registrar</button>
+          </form>
+        </div>
+        
+        <div class="conta-beneficios">
+          <h3>Benefícios da Conta</h3>
+          <ul class="beneficios-lista">
+            <li>💖 Acesso a promoções exclusivas</li>
+            <li>💖 Acompanhe seus pedidos</li>
+            <li>💖 Salve seus produtos favoritos</li>
+            <li>💖 Receba novidades em primeira mão</li>
+            <li>💖 Ganhe pontos em compras</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Coquette de Rêve</h3>
+        <p>Seu estilo coquette dos sonhos</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <a href="#inicio">Início</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Redes Sociais</h3>
+        <div class="social-icons">
+          <a href="#">📱</a>
+          <a href="#">📷</a>
+          <a href="#">📘</a>
+          <a href="#">📌</a>
+        </div>
+      </div>
+    </div>
+    
+    <p>&copy; 2025 FluffyPeach - Coquette de Rêve. Todos os direitos reservados.</p>
+    <img src="images/coelho/coelho.jpg" alt="Mini Mascote" class="mini-mascot">
+  </footer>
+  
+  <!-- Sidebar do Carrinho -->
+  <div id="carrinhoSidebar">
+    <button id="closeCarrinho">✕</button>
+    <h2>Seu Carrinho</h2>
+    
+    <div class="carrinho-acoes">
+      <button id="selecionarTodos">Selecionar Todos</button>
+      <button id="removerSelecionados">Remover Selecionados</button>
+    </div>
+    
+    <div class="pastinhas-container">
+      <div class="pastinha">
+        <div class="pastinha-header">
+          <h3>Carrinho de Compras</h3>
+          <span class="toggle-pastinha">▼</span>
+        </div>
+        <div class="pastinha-content active">
+          <ul id="listaCarrinho"></ul>
+          <p id="totalCarrinho">Total: €0,00</p>
+        </div>
+      </div>
+      
+      <div class="pastinha">
+        <div class="pastinha-header">
+          <h3>Favoritos</h3>
+          <span class="toggle-pastinha">▲</span>
+        </div>
+        <div class="pastinha-content">
+          <ul id="listaFavoritos"></ul>
+        </div>
+      </div>
+    </div>
+    
+    <div class="mover-para-container">
+      <select class="mover-para-select" id="pastinhaSeletor">
+        <option value="" disabled selected>Selecione uma pasta</option>
+        <option value="Carrinho de Compras">Carrinho de Compras</option>
+        <option value="Favoritos">Favoritos</option>
+      </select>
+      <button class="mover-para-button" id="moverItens">Mover Itens Selecionados</button>
+    </div>
+    
+    <a href="#" class="finalizar-compra">Finalizar Compra</a>
+    
+    <div class="nova-pastinha">
+      <input type="text" id="novaPastinhaInput" placeholder="Nome da nova pastinha">
+      <button id="criarPastinha">Criar</button>
+    </div>
+  </div>
+  
+  <!-- Modal para Imagem -->
+  <div id="modalImage">
+    <span id="closeModal">✕</span>
+    <img id="modalContent" src="" alt="Imagem Ampliada">
+  </div>
+  
+  <!-- Botões de Modo Noite e Seletor de Cursor -->
+  <button class="night-mode-toggle">🌙</button>
+  <button class="open-cursor-selector">Cursor</button>
+  
+  <div class="cursor-selector">
+    <h3>Escolha seu cursor</h3>
+    <div class="cursor-options">
+      <div class="cursor-option active" data-cursor="cursor-heart-pink">Coração Rosa</div>
+      <div class="cursor-option" data-cursor="cursor-heart-purple">Coração Roxo</div>
+      <div class="cursor-option" data-cursor="cursor-heart-blue">Coração Azul</div>
+      <div class="cursor-option" data-cursor="cursor-heart-red">Coração Vermelho</div>
+      <div class="cursor-option" data-cursor="cursor-star">Estrela</div>
+      <div class="cursor-option" data-cursor="cursor-bow">Laço</div>
+      <div class="cursor-option" data-cursor="cursor-default">Padrão</div>
+    </div>
+    <button class="close-cursor-selector">Fechar</button>
+  </div>
+  
+  <script>
+    // Variáveis globais
+    let carrinho = [];
+    let total = 0;
+    let pastinhas = {
+      "Carrinho de Compras": [],
+      "Favoritos": []
+    };
+    let todosSelecionados = false;
+    
+    // Função para adicionar produto ao carrinho
+    function adicionarAoCarrinho(nome, preco) {
+      // Adicionar ao array do carrinho
+      carrinho.push({nome: nome, preco: preco});
+      
+      // Adicionar à pastinha de Carrinho de Compras
+      pastinhas["Carrinho de Compras"].push({nome: nome, preco: preco});
+      
+      // Atualizar a interface
+      atualizarCarrinho();
+      
+      // Abrir a sidebar do carrinho
+      document.getElementById('carrinhoSidebar').classList.add('active');
+      
+      // Feedback visual no botão que foi clicado
+      const botoes = document.querySelectorAll('.add-to-cart');
+      botoes.forEach(botao => {
+        if (botao.textContent.includes('Adicionar') && botao.parentElement.querySelector('h3').textContent === nome) {
+          botao.style.backgroundColor = 'var(--roxo-coquette)';
+          botao.style.color = 'white';
+          botao.textContent = 'Adicionado';
+          
+          // Restaurar após 3 segundos
+          setTimeout(() => {
+            botao.style.backgroundColor = '';
+            botao.style.color = '';
+            botao.textContent = 'Adicionar ao Carrinho';
+          }, 3000);
+        }
+      });
+    }
+    
+    // Função para atualizar a exibição do carrinho
+    function atualizarCarrinho() {
+      const listaCarrinho = document.getElementById('listaCarrinho');
+      const listaFavoritos = document.getElementById('listaFavoritos');
+      const pastinhaSeletor = document.getElementById('pastinhaSeletor');
+      
+      // Limpar as listas
+      listaCarrinho.innerHTML = '';
+      listaFavoritos.innerHTML = '';
+      
+      // Limpar e recriar o seletor de pastinhas
+      while (pastinhaSeletor.options.length > 1) {
+        pastinhaSeletor.remove(1);
+      }
+      
+      // Adicionar opções ao seletor
+      Object.keys(pastinhas).forEach(nomePastinha => {
+        const option = document.createElement('option');
+        option.value = nomePastinha;
+        option.textContent = nomePastinha;
+        pastinhaSeletor.appendChild(option);
+      });
+      
+      // Atualizar lista do carrinho
+      let valorTotal = 0;
+      
+      pastinhas["Carrinho de Compras"].forEach((item, index) => {
+        const li = document.createElement('li');
+        
+        // Criar checkbox
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'item-checkbox';
+        checkbox.dataset.pastinha = "Carrinho de Compras";
+        checkbox.dataset.index = index;
+        
+        // Criar texto do item
+        const itemText = document.createTextNode(`${item.nome} - ${item.preco}`);
+        
+        // Adicionar à lista
+        li.appendChild(checkbox);
+        li.appendChild(itemText);
+        listaCarrinho.appendChild(li);
+        
+        // Calcular valor total (removendo € e convertendo para número)
+        const valor = parseFloat(item.preco.replace('€', '').replace(',', '.').trim());
+        valorTotal += valor;
+      });
+      
+      // Atualizar lista de favoritos
+      pastinhas["Favoritos"].forEach((item, index) => {
+        const li = document.createElement('li');
+        
+        // Criar checkbox
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.className = 'item-checkbox';
+        checkbox.dataset.pastinha = "Favoritos";
+        checkbox.dataset.index = index;
+        
+        // Criar texto do item
+        const itemText = document.createTextNode(`${item.nome} - ${item.preco}`);
+        
+        // Adicionar à lista
+        li.appendChild(checkbox);
+        li.appendChild(itemText);
+        listaFavoritos.appendChild(li);
+      });
+      
+      // Para todas as outras pastinhas personalizadas
+      Object.keys(pastinhas).forEach(nomePastinha => {
+        if (nomePastinha !== "Carrinho de Compras" && nomePastinha !== "Favoritos") {
+          // Encontrar a lista da pastinha
+          const pastinhaElement = Array.from(document.querySelectorAll('.pastinha')).find(
+            el => el.querySelector('h3').textContent === nomePastinha
+          );
+          
+          if (pastinhaElement) {
+            const lista = pastinhaElement.querySelector('ul') || document.createElement('ul');
+            if (!lista.parentNode) {
+              pastinhaElement.querySelector('.pastinha-content').appendChild(lista);
+            }
+            
+            // Limpar a lista
+            lista.innerHTML = '';
+            
+            // Adicionar itens
+            pastinhas[nomePastinha].forEach((item, index) => {
+              const li = document.createElement('li');
+              
+              // Criar checkbox
+              const checkbox = document.createElement('input');
+              checkbox.type = 'checkbox';
+              checkbox.className = 'item-checkbox';
+              checkbox.dataset.pastinha = nomePastinha;
+              checkbox.dataset.index = index;
+              
+              // Criar texto do item
+              const itemText = document.createTextNode(`${item.nome} - ${item.preco}`);
+              
+              // Adicionar à lista
+              li.appendChild(checkbox);
+              li.appendChild(itemText);
+              lista.appendChild(li);
+            });
+          }
+        }
+      });
+      
+      // Atualizar total
+      document.getElementById('totalCarrinho').textContent = `Total: €${valorTotal.toFixed(2)}`;
+    }
+    
+    // Função para adicionar produto aos favoritos
+    function adicionarAosFavoritos(elemento) {
+      const produtoElement = elemento.closest('.produto');
+      const nome = produtoElement.querySelector('h3').textContent;
+      const preco = produtoElement.querySelector('p').textContent;
+      const isFavorito = elemento.getAttribute('data-favorito') === 'true';
+      
+      if (!isFavorito) {
+        // Adicionar aos favoritos
+        pastinhas["Favoritos"].push({nome: nome, preco: preco});
+        elemento.textContent = '❤️';
+        elemento.setAttribute('data-favorito', 'true');
+        elemento.classList.add('active');
+      } else {
+        // Remover dos favoritos
+        const index = pastinhas["Favoritos"].findIndex(item => item.nome === nome);
+        if (index !== -1) {
+          pastinhas["Favoritos"].splice(index, 1);
+        }
+        elemento.textContent = '🤍';
+        elemento.setAttribute('data-favorito', 'false');
+        elemento.classList.remove('active');
+      }
+      
+      // Atualizar a interface
+      atualizarCarrinho();
+    }
+    
+    // Função para abrir o modal da imagem
+    function abrirModal(src) {
+      const modal = document.getElementById('modalImage');
+      const modalContent = document.getElementById('modalContent');
+      
+      modalContent.src = src;
+      modal.classList.add('active');
+    }
+    
+    // Função para criar estrelas no fundo
+    function criarEstrelas() {
+      // Remover estrelas existentes
+      removerEstrelas();
+      
+      // Criar novas estrelas
+      const numEstrelas = 100;
+      for (let i = 0; i < numEstrelas; i++) {
+        const estrela = document.createElement('div');
+        estrela.className = 'star';
+        
+        // Posição aleatória
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        
+        // Tamanho aleatório
+        const tamanho = Math.random() * 3 + 1;
+        
+        // Atraso aleatório na animação
+        const atraso = Math.random() * 5;
+        
+        // Aplicar estilos
+        estrela.style.left = `${x}px`;
+        estrela.style.top = `${y}px`;
+        estrela.style.width = `${tamanho}px`;
+        estrela.style.height = `${tamanho}px`;
+        estrela.style.animationDelay = `${atraso}s`;
+        
+        // Adicionar ao body
+        document.body.appendChild(estrela);
+      }
+    }
+    
+    // Função para remover estrelas
+    function removerEstrelas() {
+      const estrelas = document.querySelectorAll('.star');
+      estrelas.forEach(estrela => estrela.remove());
+    }
+    
+    // Configurar eventos quando o DOM estiver carregado
+    document.addEventListener('DOMContentLoaded', function() {
+      // Botão para abrir o carrinho
+      document.getElementById('verCarrinho').addEventListener('click', function() {
+        document.getElementById('carrinhoSidebar').classList.add('active');
+      });
+      
+      // Botão para fechar o carrinho
+      document.getElementById('closeCarrinho').addEventListener('click', function() {
+        document.getElementById('carrinhoSidebar').classList.remove('active');
+      });
+      
+      // Botão para selecionar todos os itens
+      document.getElementById('selecionarTodos').addEventListener('click', function() {
+        const checkboxes = document.querySelectorAll('.item-checkbox');
+        todosSelecionados = !todosSelecionados;
+        
+        checkboxes.forEach(checkbox => {
+          checkbox.checked = todosSelecionados;
+        });
+        
+        // Atualizar texto do botão
+        this.textContent = todosSelecionados ? 'Desmarcar Todos' : 'Selecionar Todos';
+        
+        // Mostrar ou esconder o container de mover para
+        document.querySelector('.mover-para-container').classList.toggle('active', todosSelecionados);
+      });
+      
+      // Botão para remover itens selecionados
+      document.getElementById('removerSelecionados').addEventListener('click', function() {
+        // Obter todos os checkboxes marcados
+        const checkboxesSelecionados = document.querySelectorAll('.item-checkbox:checked');
+        
+        if (checkboxesSelecionados.length === 0) {
+          // Feedback visual sem popup
+          const botao = this;
+          botao.style.backgroundColor = '#ffcccc';
+          setTimeout(() => {
+            botao.style.backgroundColor = '';
+          }, 1000);
+          return;
+        }
+        
+        // Agrupar por pastinha para remover de trás para frente (evitar problemas de índice)
+        const itensPorPastinha = {};
+        
+        checkboxesSelecionados.forEach(checkbox => {
+          const pastinha = checkbox.dataset.pastinha;
+          const index = parseInt(checkbox.dataset.index);
+          
+          if (!itensPorPastinha[pastinha]) {
+            itensPorPastinha[pastinha] = [];
+          }
+          
+          itensPorPastinha[pastinha].push(index);
+        });
+        
+        // Ordenar índices em ordem decrescente para remover de trás para frente
+        Object.keys(itensPorPastinha).forEach(pastinha => {
+          itensPorPastinha[pastinha].sort((a, b) => b - a);
+          
+          // Remover itens
+          itensPorPastinha[pastinha].forEach(index => {
+            pastinhas[pastinha].splice(index, 1);
+          });
+        });
+        
+        // Atualizar a interface
+        atualizarCarrinho();
+        
+        // Feedback visual sem popup
+        const botao = this;
+        botao.style.backgroundColor = '#ccffcc';
+        setTimeout(() => {
+          botao.style.backgroundColor = '';
+        }, 1000);
+        
+        // Resetar estado de seleção
+        todosSelecionados = false;
+        document.getElementById('selecionarTodos').textContent = 'Selecionar Todos';
+        document.querySelector('.mover-para-container').classList.remove('active');
+      });
+      
+      // Botão para mover itens selecionados
+      document.getElementById('moverItens').addEventListener('click', function() {
+        const pastinhaDestino = document.getElementById('pastinhaSeletor').value;
+        
+        if (!pastinhaDestino) {
+          return;
+        }
+        
+        // Obter todos os checkboxes marcados
+        const checkboxesSelecionados = document.querySelectorAll('.item-checkbox:checked');
+        
+        if (checkboxesSelecionados.length === 0) {
+          return;
+        }
+        
+        // Agrupar por pastinha para processar
+        const itensPorPastinha = {};
+        
+        checkboxesSelecionados.forEach(checkbox => {
+          const pastinhaOrigem = checkbox.dataset.pastinha;
+          const index = parseInt(checkbox.dataset.index);
+          
+          if (pastinhaOrigem !== pastinhaDestino) {
+            if (!itensPorPastinha[pastinhaOrigem]) {
+              itensPorPastinha[pastinhaOrigem] = [];
+            }
+            
+            itensPorPastinha[pastinhaOrigem].push(index);
+          }
+        });
+        
+        // Processar cada pastinha
+        Object.keys(itensPorPastinha).forEach(pastinhaOrigem => {
+          // Ordenar índices em ordem decrescente
+          itensPorPastinha[pastinhaOrigem].sort((a, b) => b - a);
+          
+          // Mover itens
+          itensPorPastinha[pastinhaOrigem].forEach(index => {
+            const item = pastinhas[pastinhaOrigem][index];
+            pastinhas[pastinhaDestino].push(item);
+            pastinhas[pastinhaOrigem].splice(index, 1);
+          });
+        });
+        
+        // Atualizar a interface
+        atualizarCarrinho();
+        
+        // Feedback visual
+        this.textContent = '✓ Movido!';
+        setTimeout(() => {
+          this.textContent = 'Mover Itens Selecionados';
+        }, 1500);
+        
+        // Resetar estado de seleção
+        todosSelecionados = false;
+        document.getElementById('selecionarTodos').textContent = 'Selecionar Todos';
+        document.querySelector('.mover-para-container').classList.remove('active');
+      });
+      
+      // Botão para fechar o modal da imagem
+      document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('modalImage').classList.remove('active');
+      });
+      
+      // Botão para alternar o modo noite
+      document.querySelector('.night-mode-toggle').addEventListener('click', function() {
+        document.body.classList.toggle('night-mode');
+        
+        // Alternar o ícone do botão
+        this.textContent = document.body.classList.contains('night-mode') ? '☀️' : '🌙';
+        
+        // Gerenciar estrelas no modo noturno
+        if (document.body.classList.contains('night-mode')) {
+          criarEstrelas();
+        } else {
+          removerEstrelas();
+        }
+      });
+      
+      // Botão para abrir o seletor de cursor
+      document.querySelector('.open-cursor-selector').addEventListener('click', function() {
+        document.querySelector('.cursor-selector').classList.add('active');
+      });
+      
+      // Botão para fechar o seletor de cursor
+      document.querySelector('.close-cursor-selector').addEventListener('click', function() {
+        document.querySelector('.cursor-selector').classList.remove('active');
+      });
+      
+      // Opções de cursor
+      const cursorOptions = document.querySelectorAll('.cursor-option');
+      
+      cursorOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          // Remover classe ativa de todas as opções
+          cursorOptions.forEach(opt => opt.classList.remove('active'));
+          
+          // Adicionar classe ativa à opção selecionada
+          this.classList.add('active');
+          
+          // Remover todas as classes de cursor do body
+          document.body.classList.remove(
+            'cursor-default',
+            'cursor-heart-pink',
+            'cursor-heart-purple',
+            'cursor-heart-blue',
+            'cursor-heart-red',
+            'cursor-star',
+            'cursor-bow'
+          );
+          
+          // Adicionar a classe de cursor selecionada
+          document.body.classList.add(this.dataset.cursor);
+        });
+      });
+      
+      // Alternar pastinhas
+      const pastinhaHeaders = document.querySelectorAll('.pastinha-header');
+      
+      pastinhaHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+          const content = this.nextElementSibling;
+          const toggleIcon = this.querySelector('.toggle-pastinha');
+          
+          content.classList.toggle('active');
+          toggleIcon.textContent = content.classList.contains('active') ? '▼' : '▲';
+        });
+      });
+      
+      // Criar nova pastinha
+      document.getElementById('criarPastinha').addEventListener('click', function() {
+        const nomePastinha = document.getElementById('novaPastinhaInput').value.trim();
+        
+        if (nomePastinha) {
+          // Verificar se a pastinha já existe
+          if (!pastinhas[nomePastinha]) {
+            // Criar nova pastinha
+            pastinhas[nomePastinha] = [];
+            
+            // Criar elemento HTML para a nova pastinha
+            const pastinhasContainer = document.querySelector('.pastinhas-container');
+            
+            const novaPastinha = document.createElement('div');
+            novaPastinha.className = 'pastinha';
+            
+            const pastinhaHeader = document.createElement('div');
+            pastinhaHeader.className = 'pastinha-header';
+            
+            const h3 = document.createElement('h3');
+            h3.textContent = nomePastinha;
+            
+            const toggleIcon = document.createElement('span');
+            toggleIcon.className = 'toggle-pastinha';
+            toggleIcon.textContent = '▲';
+            
+            const pastinhaContent = document.createElement('div');
+            pastinhaContent.className = 'pastinha-content';
+            
+            const lista = document.createElement('ul');
+            
+            // Montar a estrutura
+            pastinhaHeader.appendChild(h3);
+            pastinhaHeader.appendChild(toggleIcon);
+            
+            pastinhaContent.appendChild(lista);
+            
+            novaPastinha.appendChild(pastinhaHeader);
+            novaPastinha.appendChild(pastinhaContent);
+            
+            pastinhasContainer.appendChild(novaPastinha);
+            
+            // Adicionar evento de toggle
+            pastinhaHeader.addEventListener('click', function() {
+              pastinhaContent.classList.toggle('active');
+              toggleIcon.textContent = pastinhaContent.classList.contains('active') ? '▼' : '▲';
+            });
+            
+            // Limpar o input
+            document.getElementById('novaPastinhaInput').value = '';
+            
+            // Atualizar a interface
+            atualizarCarrinho();
+          }
+        }
+      });
+      
+      // Configurar ícones de favoritos
+      const wishlistIcons = document.querySelectorAll('.wishlist-icon');
+      
+      wishlistIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+          adicionarAosFavoritos(this);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
